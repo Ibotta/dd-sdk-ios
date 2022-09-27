@@ -5,7 +5,7 @@
 */
 
 import XCTest
-@testable import  Datadog
+@testable import DatadogSDK
 @testable import DatadogObjc
 
 class DDGlobalTests: XCTestCase {

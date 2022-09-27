@@ -9,7 +9,7 @@
 import XCTest
 import WebKit
 
-@testable import Datadog
+@testable import DatadogSDK
 
 final class DDUserContentController: WKUserContentController {
     typealias NameHandlerPair = (name: String, handler: WKScriptMessageHandler)

@@ -4,7 +4,7 @@
  * Copyright 2019-2020 Datadog, Inc.
  */
 
-import Datadog
+import DatadogSDK
 
 // swiftlint:disable identifier_name
 internal extension DatadogObjc.OTTracer {

@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 fileprivate class MockEventConsumer: WebLogEventConsumer, WebRUMEventConsumer {
     private(set) var consumedLogEvents: [JSON] = []

@@ -6,7 +6,7 @@
 
 import UIKit
 import WebKit
-import Datadog
+import DatadogSDK
 
 class DebugWebviewViewController: UIViewController {
     @IBOutlet weak var rumServiceNameTextField: UITextField!

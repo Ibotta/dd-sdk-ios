@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 class InternalLoggerTests: XCTestCase {
     private let mock = PrintFunctionMock()

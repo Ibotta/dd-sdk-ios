@@ -5,7 +5,7 @@
  */
 
 import Foundation
-import Datadog
+import DatadogSDK
 
 @objc
 public class DDEndpoint: NSObject {

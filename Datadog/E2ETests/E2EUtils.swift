@@ -5,7 +5,7 @@
  */
 
 import Foundation
-import Datadog
+import DatadogSDK
 
 /// Collection of utilities for creating values for facets configured in "Mobile - Integration" org.
 struct DD {

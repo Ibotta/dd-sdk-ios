@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 class DirectoryTests: XCTestCase {
     private let fileManager = FileManager.default

@@ -6,7 +6,7 @@
 
 import Foundation
 import SwiftUI
-import Datadog
+import DatadogSDK
 
 /// A custom SwiftUI Hosting controller for `RootView`.
 ///

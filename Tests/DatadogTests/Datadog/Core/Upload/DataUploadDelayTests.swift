@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 class DataUploadDelayTests: XCTestCase {
     private let mockPerformance = UploadPerformanceMock(

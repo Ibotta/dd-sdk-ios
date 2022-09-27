@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 class RUMEventsMapperTests: XCTestCase {
     func testGivenMappersEnabled_whenModifyingEvents_itReturnsTheirNewRepresentation() throws {

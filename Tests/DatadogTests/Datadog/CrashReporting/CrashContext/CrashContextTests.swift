@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 class CrashContextTests: XCTestCase {
     private let encoder = JSONEncoder()

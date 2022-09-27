@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 class DDSpanContextTests: XCTestCase {
     private let queue = DispatchQueue(label: "com.datadoghq.\(#file)")

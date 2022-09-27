@@ -5,7 +5,7 @@
 */
 
 import UIKit
-import Datadog
+import DatadogSDK
 
 var logger: Logger!
 var tracer: OTTracer { Global.sharedTracer }

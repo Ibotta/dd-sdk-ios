@@ -5,7 +5,7 @@
  */
 
 import XCTest
-import Datadog
+import DatadogSDK
 
 #if canImport(SwiftUI)
 import SwiftUI

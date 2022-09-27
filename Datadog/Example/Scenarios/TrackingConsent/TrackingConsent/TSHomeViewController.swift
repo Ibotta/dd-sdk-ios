@@ -5,7 +5,7 @@
  */
 
 import UIKit
-import Datadog
+import DatadogSDK
 
 internal class TSHomeViewController: UIViewController {
     override func viewDidLoad() {

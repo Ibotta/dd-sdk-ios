@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 class DeleteAllDataMigratorTests: XCTestCase {
     private var directory: Directory! // swiftlint:disable:this implicitly_unwrapped_optional

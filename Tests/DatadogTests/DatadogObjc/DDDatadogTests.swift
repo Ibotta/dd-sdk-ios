@@ -5,7 +5,7 @@
 */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 @testable import DatadogObjc
 
 /// This tests verify that objc-compatible `DatadogObjc` wrapper properly interacts with`Datadog` public API (swift).

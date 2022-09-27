@@ -5,7 +5,7 @@
  */
 
 @testable import DatadogCrashReporting
-@testable import Datadog
+@testable import DatadogSDK
 import CrashReporter
 
 internal class ThirdPartyCrashReporterMock: ThirdPartyCrashReporter {

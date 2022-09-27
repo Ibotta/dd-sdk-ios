@@ -4,7 +4,7 @@
  * Copyright 2019-2020 Datadog, Inc.
  */
 
-@testable import Datadog
+@testable import DatadogSDK
 
 /// `CoreDirectory` pointing to subfolders in `/var/folders/`.
 /// This location does not exist by default and should be created and deleted by calling `.create()` and `.delete()` in each test,

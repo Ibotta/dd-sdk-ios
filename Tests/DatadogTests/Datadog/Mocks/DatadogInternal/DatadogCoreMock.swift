@@ -6,7 +6,7 @@
 
 import Foundation
 
-@testable import Datadog
+@testable import DatadogSDK
 
 internal final class DatadogCoreMock: Flushable {
     private var v1Features: [String: Any] = [:]

@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 class RUMViewUpdatesThrottlerTests: XCTestCase {
     private let randomViewUpdateThreshold: TimeInterval = .mockRandom(min: 1, max: 10)

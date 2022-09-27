@@ -5,12 +5,12 @@
  */
 
 import Foundation
-import protocol Datadog.OTSpan
+import protocol DatadogSDK.OTSpan
 
 internal class DDSpanObjc: NSObject, DatadogObjc.OTSpan {
-    let swiftSpan: Datadog.OTSpan
+    let swiftSpan: DatadogSDK.OTSpan
 
-    init(objcTracer: DatadogObjc.OTTracer, swiftSpan: Datadog.OTSpan) {
+    init(objcTracer: DatadogObjc.OTTracer, swiftSpan: DatadogSDK.OTSpan) {
         self.tracer = objcTracer
         self.context = DDSpanContextObjc(swiftSpanContext: swiftSpan.context)
         self.swiftSpan = swiftSpan

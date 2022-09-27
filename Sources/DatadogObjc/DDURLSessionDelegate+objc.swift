@@ -5,7 +5,7 @@
  */
 
 import Foundation
-import Datadog
+import DatadogSDK
 
 @objc
 open class DDNSURLSessionDelegate: NSObject, URLSessionTaskDelegate, URLSessionDataDelegate, __URLSessionDelegateProviding {

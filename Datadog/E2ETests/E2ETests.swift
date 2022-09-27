@@ -5,7 +5,7 @@
 */
 
 import XCTest
-import Datadog
+import DatadogSDK
 
 /// A base class for all E2E test cases.
 class E2ETests: XCTestCase {

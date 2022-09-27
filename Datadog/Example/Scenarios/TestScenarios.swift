@@ -4,7 +4,7 @@
  * Copyright 2019-2020 Datadog, Inc.
  */
 
-import Datadog
+import DatadogSDK
 
 protocol TestScenario: AnyObject {
     /// The name of the storyboard containing this scenario.

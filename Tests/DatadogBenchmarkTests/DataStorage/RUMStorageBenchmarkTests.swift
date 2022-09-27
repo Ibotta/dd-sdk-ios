@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 class RUMStorageBenchmarkTests: XCTestCase {
     // swiftlint:disable implicitly_unwrapped_optional

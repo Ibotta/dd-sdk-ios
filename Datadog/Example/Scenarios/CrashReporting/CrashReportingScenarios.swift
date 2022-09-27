@@ -4,7 +4,7 @@
  * Copyright 2019-2020 Datadog, Inc.
  */
 
-import Datadog
+import DatadogSDK
 import DatadogCrashReporting
 import UIKit
 

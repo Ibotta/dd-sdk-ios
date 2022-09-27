@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 class DataBlockTests: XCTestCase {
     func testSerializeDataBlock() throws {

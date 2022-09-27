@@ -30,11 +30,11 @@ public struct DDTags {
 }
 
 /// Because `Tracer` is a common name widely used across different projects, the `Datadog.Tracer` may conflict when
-/// doing `import Datadog`. In such case, following `DDTracer` typealias can be used to avoid compiler ambiguity.
+/// doing `import DatadogSDK`. In such case, following `DDTracer` typealias can be used to avoid compiler ambiguity.
 ///
 /// Usage:
 ///
-///     import Datadog
+///     import DatadogSDK
 ///
 ///     // tracer reference
 ///     var tracer: DDTracer!

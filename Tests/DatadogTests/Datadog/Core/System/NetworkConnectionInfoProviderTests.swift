@@ -7,7 +7,7 @@
 import XCTest
 import Network
 import SystemConfiguration
-@testable import Datadog
+@testable import DatadogSDK
 
 class NetworkConnectionInfoProviderTests: XCTestCase {
     /// Constantly pulls the `NetworkConnectionInfo` from given provider and fulfils the expectation if value is received.

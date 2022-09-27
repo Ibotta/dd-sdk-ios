@@ -5,7 +5,7 @@
  */
 
 import Foundation
-import Datadog
+import DatadogSDK
 
 /// An interface of 3rd party crash reporter used by the DatadogCrashReporting.
 internal protocol ThirdPartyCrashReporter {

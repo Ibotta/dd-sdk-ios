@@ -6,7 +6,7 @@
 
 import XCTest
 import UIKit
-@testable import Datadog
+@testable import DatadogSDK
 
 class CustomSwiftViewController: UIViewController {}
 
@@ -15,7 +15,7 @@ class UIKitExtensionsTests: XCTestCase {
         let swiftViewController = CustomSwiftViewController()
         let objcViewController = CustomObjcViewController()
 
-        XCTAssertEqual(swiftViewController.canonicalClassName, "DatadogTests.CustomSwiftViewController")
+        XCTAssertEqual(swiftViewController.canonicalClassName, "DatadogSDKTests.CustomSwiftViewController")
         XCTAssertEqual(objcViewController.canonicalClassName, "CustomObjcViewController")
     }
 

@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 private class OperationMock {
     private let succeedingCallResults: [Result<Int, Error>]

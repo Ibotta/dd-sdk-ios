@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 class JSONEncoderTests: XCTestCase {
     private let jsonEncoder = JSONEncoder.default()

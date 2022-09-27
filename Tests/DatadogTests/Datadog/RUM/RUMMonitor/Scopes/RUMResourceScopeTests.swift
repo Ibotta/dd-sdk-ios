@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 class RUMResourceScopeTests: XCTestCase {
     let datadogContext: DatadogV1Context = .mockWith(

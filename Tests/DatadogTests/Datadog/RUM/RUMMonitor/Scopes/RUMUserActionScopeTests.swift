@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 class RUMUserActionScopeTests: XCTestCase {
     let context: DatadogV1Context = .mockWith(

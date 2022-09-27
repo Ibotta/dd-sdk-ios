@@ -4,7 +4,7 @@
  * Copyright 2019-2020 Datadog, Inc.
  */
 
-import Datadog
+import DatadogSDK
 
 class TracerE2ETests: E2ETests {
     private var tracer: OTTracer! // swiftlint:disable:this implicitly_unwrapped_optional

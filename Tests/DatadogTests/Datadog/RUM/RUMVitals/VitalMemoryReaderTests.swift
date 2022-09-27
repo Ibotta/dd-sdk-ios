@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 private class Allocation {
     fileprivate let numberOfBytes: Int

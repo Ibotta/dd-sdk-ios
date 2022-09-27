@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 class _InternalProxyTests: XCTestCase {
     func testWhenTelemetryIsSentThroughProxy_thenItForwardsToDDTelemetry() throws {

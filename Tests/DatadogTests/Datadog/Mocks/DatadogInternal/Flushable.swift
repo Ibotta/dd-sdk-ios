@@ -6,7 +6,7 @@
 
 import Foundation
 
-@testable import Datadog
+@testable import DatadogSDK
 
 /// `Flushable` object resets its state on flush.
 ///

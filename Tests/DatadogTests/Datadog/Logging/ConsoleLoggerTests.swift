@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 class ConsoleLoggerTests: XCTestCase {
     private let mock = PrintFunctionMock()

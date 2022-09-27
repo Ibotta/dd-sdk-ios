@@ -6,7 +6,7 @@
 
 import XCTest
 import UIKit
-@testable import Datadog
+@testable import DatadogSDK
 
 // TODO: RUMM-2034 Remove this flag once we have a host application for tests
 #if !os(tvOS)

@@ -6,7 +6,7 @@
 
 import XCTest
 import HTTPServerMock
-import Datadog
+import DatadogSDK
 
 struct ServerConnectionError: Error {
     let description: String

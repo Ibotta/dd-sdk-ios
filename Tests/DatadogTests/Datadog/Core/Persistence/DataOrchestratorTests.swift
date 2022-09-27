@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 class DataOrchestratorTests: XCTestCase {
     private let queue = DispatchQueue(label: "dd-tests-data-orchestrator")

@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 class RUMOffViewEventsHandlingRuleTests: XCTestCase {
     // MARK: - When There Is No RUM Session

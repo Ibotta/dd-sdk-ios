@@ -6,7 +6,7 @@
 
 import Foundation
 import UIKit
-import Datadog
+import DatadogSDK
 
 internal class SendFirstPartyRequestsViewController: UIViewController {
     private var testScenario: URLSessionBaseScenario!

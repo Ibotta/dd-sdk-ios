@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 private class MockSpan: OTSpan {
     var context: OTSpanContext = DDNoopGlobals.context
@@ -64,7 +64,7 @@ class OTSpanTests: XCTestCase {
         XCTAssertEqual(
             try span.logs[0].otStack(),
             """
-            DatadogTests/File.swift:42
+            DatadogSDKTests/File.swift:42
             swift error description
             """
         )
@@ -116,7 +116,7 @@ class OTSpanTests: XCTestCase {
         XCTAssertEqual(
             try span.logs[0].otStack(),
             """
-            DatadogTests/File.swift:42
+            DatadogSDKTests/File.swift:42
             Error Domain=DDSpan Code=1 "ns error description" UserInfo={NSLocalizedDescription=ns error description}
             """
         )
@@ -140,7 +140,7 @@ class OTSpanTests: XCTestCase {
         XCTAssertEqual(
             try span.logs[0].otStack(),
             """
-            DatadogTests/File.swift:42
+            DatadogSDKTests/File.swift:42
             """
         )
     }
@@ -166,7 +166,7 @@ class OTSpanTests: XCTestCase {
         XCTAssertEqual(
             try span.logs[0].otStack(),
             """
-            DatadogTests/OTSpanTests.swift:158
+            DatadogSDKTests/OTSpanTests.swift:158
             Thread 0 Crashed:
             0   app                                 0x0000000102bc0d8c 0x102bb8000 + 36236
             1   UIKitCore                           0x00000001b513d9ac 0x1b4739000 + 10504620

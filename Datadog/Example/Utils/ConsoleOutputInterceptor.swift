@@ -8,7 +8,7 @@
 
 /// Below `@testable import` is only for SDK debug purposes, to easily override internal `consolePrint` function and display
 /// the output of the `Logger` in UI. Should be never used in client's application code.
-@testable import Datadog
+@testable import DatadogSDK
 import UIKit
 
 class ConsoleOutputInterceptor {

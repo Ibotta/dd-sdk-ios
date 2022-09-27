@@ -5,7 +5,7 @@
  */
 
 import Foundation
-@testable import Datadog
+@testable import DatadogSDK
 
 /*
  Set of Datadog domain extensions over standard types for writing more readable tests.

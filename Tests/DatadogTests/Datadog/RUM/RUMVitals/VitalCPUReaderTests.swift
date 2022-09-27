@@ -6,7 +6,7 @@
 
 import XCTest
 import UIKit.UIApplication
-@testable import Datadog
+@testable import DatadogSDK
 
 class VitalCPUReaderTest: XCTestCase {
     let testNotificationCenter = NotificationCenter()

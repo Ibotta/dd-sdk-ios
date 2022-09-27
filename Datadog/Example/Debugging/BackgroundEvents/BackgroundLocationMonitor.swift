@@ -5,7 +5,7 @@
  */
 
 import Foundation
-import Datadog
+import DatadogSDK
 import CoreLocation
 import UIKit.UIApplication
 

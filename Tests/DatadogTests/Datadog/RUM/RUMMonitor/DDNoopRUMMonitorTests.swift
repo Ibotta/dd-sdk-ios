@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 class DDNoopRUMMonitorTests: XCTestCase {
     func testWhenUsingDDNoopRUMMonitorAPIs_itPrintsWarning() {

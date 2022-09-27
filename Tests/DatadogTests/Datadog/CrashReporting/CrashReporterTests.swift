@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 class CrashReporterTests: XCTestCase {
     // MARK: - Sending Crash Report

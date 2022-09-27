@@ -22,7 +22,7 @@ public enum LogLevel: Int, Codable {
 ///
 /// Usage:
 ///
-///     import Datadog
+///     import DatadogSDK
 ///
 ///     // logger reference
 ///     var logger: DDLogger!

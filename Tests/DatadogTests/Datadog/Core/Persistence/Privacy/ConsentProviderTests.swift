@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 class ConsentProviderTests: XCTestCase {
     func testGivenInitialConsentSet_whenTheValueChanges_itCanBeRetrieved() {

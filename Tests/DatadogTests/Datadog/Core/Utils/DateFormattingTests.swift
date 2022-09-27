@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 class DateFormattingTests: XCTestCase {
     private let date: Date = .mockDecember15th2019At10AMUTC(addingTimeInterval: 0.001)

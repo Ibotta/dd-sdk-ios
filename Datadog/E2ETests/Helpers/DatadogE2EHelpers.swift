@@ -4,7 +4,7 @@
  * Copyright 2019-2020 Datadog, Inc.
  */
 
-import Datadog
+import DatadogSDK
 
 extension Datadog.Configuration {
     static func builderUsingE2EConfig() -> Datadog.Configuration.Builder {

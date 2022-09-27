@@ -4,7 +4,7 @@
  * Copyright 2019-2020 Datadog, Inc.
  */
 
-import Datadog
+import DatadogSDK
 
 /// Scenario which starts a view controller that sends bunch of logs to the server.
 final class LoggingManualInstrumentationScenario: TestScenario {

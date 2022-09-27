@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 class CodableValueTests: XCTestCase {
     private let encoder = JSONEncoder()

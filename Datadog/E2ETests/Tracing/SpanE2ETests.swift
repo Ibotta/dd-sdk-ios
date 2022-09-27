@@ -4,7 +4,7 @@
  * Copyright 2019-2020 Datadog, Inc.
  */
 
-import Datadog
+import DatadogSDK
 
 class SpanE2ETests: E2ETests {
     /// - api-surface: OTSpan.setOperationName(_ operationName: String)

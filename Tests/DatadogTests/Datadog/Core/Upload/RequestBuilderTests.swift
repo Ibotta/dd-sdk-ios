@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 class RequestBuilderTests: XCTestCase {
     // MARK: - Request URL

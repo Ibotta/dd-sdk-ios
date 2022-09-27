@@ -6,7 +6,7 @@
 
 import Foundation
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 class RUMInternalProxyTests: XCTestCase {
     private var core: DatadogCoreMock! // swiftlint:disable:this implicitly_unwrapped_optional

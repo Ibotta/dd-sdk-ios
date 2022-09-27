@@ -6,7 +6,7 @@
 
 import XCTest
 import UIKit
-@testable import Datadog
+@testable import DatadogSDK
 
 class BatteryStatusTests: XCTestCase {
     func testWhenInstantiated_itEnablesBatteryMonitoring() {

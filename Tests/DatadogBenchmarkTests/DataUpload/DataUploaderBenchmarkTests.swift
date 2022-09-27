@@ -6,7 +6,7 @@
 
 import XCTest
 import HTTPServerMock
-@testable import Datadog
+@testable import DatadogSDK
 
 @available(iOS 13.0, *)
 class DataUploaderBenchmarkTests: BenchmarkTests {

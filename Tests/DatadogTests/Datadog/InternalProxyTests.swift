@@ -7,7 +7,7 @@
 import Foundation
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 class InternalProxyTests: XCTestCase {
     func testProxyDebugCallsTelemetryDebug() {

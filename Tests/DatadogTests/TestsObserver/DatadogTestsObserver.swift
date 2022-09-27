@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 /// Observes unit tests execution and performs integrity checks after each test to ensure that the global state is unaltered.
 @objc

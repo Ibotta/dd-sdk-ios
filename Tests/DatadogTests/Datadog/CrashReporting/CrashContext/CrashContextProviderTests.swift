@@ -9,7 +9,7 @@ import XCTest
 import CoreTelephony
 #endif
 
-@testable import Datadog
+@testable import DatadogSDK
 
 /// This suite tests if `CrashContextProvider` gets updated by different SDK components, each updating
 /// separate part of the `CrashContext` information.

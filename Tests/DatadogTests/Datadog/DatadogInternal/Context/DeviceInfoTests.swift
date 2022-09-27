@@ -7,7 +7,7 @@
 import XCTest
 import UIKit
 
-@testable import Datadog
+@testable import DatadogSDK
 
 class DeviceInfoTests: XCTestCase {
     func testWhenRunningOnMobile_itUsesUIDeviceInfo() {

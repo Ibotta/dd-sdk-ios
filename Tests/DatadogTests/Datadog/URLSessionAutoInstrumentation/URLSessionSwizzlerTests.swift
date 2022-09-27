@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 class URLSessionSwizzlerTests: XCTestCase {
     let core = DatadogCoreMock()

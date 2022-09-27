@@ -6,7 +6,7 @@
 
 import Foundation
 import CrashReporter
-import Datadog
+import DatadogSDK
 
 /// Builds `DDCrashReport` from `PLCrashReport`.
 internal struct DDCrashReportBuilder {

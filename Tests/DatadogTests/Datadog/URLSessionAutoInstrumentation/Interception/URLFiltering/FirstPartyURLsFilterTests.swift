@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 class FirstPartyURLsFilterTests: XCTestCase {
     let fixtures1stParty = [

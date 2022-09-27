@@ -6,7 +6,7 @@
 
 import XCTest
 import UIKit
-@testable import Datadog
+@testable import DatadogSDK
 
 class RUMViewIdentityTests: XCTestCase {
     // MARK: - Comparing identifiables

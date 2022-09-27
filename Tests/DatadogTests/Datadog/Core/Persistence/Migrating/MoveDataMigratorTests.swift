@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 class MoveDataMigratorTests: XCTestCase {
     private var sourceDirectory: Directory! // swiftlint:disable:this implicitly_unwrapped_optional

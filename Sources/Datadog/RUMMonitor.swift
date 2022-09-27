@@ -120,7 +120,7 @@ internal enum RUMInternalErrorSource {
 /// `RUMMonitor` allows recording user events that can be explored and analyzed in Datadog Dashboards.
 /// There can be only one active `RUMMonitor`, and it should be registered/retrieved through `Global.rum`:
 ///
-///     import Datadog
+///     import DatadogSDK
 ///
 ///     // register
 ///     Global.rum = RUMMonitor.initialize()

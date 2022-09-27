@@ -5,7 +5,7 @@
  */
 
 import Foundation
-import class Datadog.Logger
+import class DatadogSDK.Logger
 
 @objc
 public enum DDSDKVerbosityLevel: Int {

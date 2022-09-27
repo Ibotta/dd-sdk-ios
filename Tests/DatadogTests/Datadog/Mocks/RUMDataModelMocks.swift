@@ -4,7 +4,7 @@
  * Copyright 2019-2020 Datadog, Inc.
  */
 
-@testable import Datadog
+@testable import DatadogSDK
 
 extension RUMUser: EquatableInTests {}
 extension RUMConnectivity: EquatableInTests {}

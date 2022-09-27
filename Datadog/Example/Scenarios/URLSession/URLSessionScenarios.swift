@@ -5,7 +5,7 @@
  */
 
 import Foundation
-import Datadog
+import DatadogSDK
 
 /// An example of instrumenting existing `URLSessionDelegate` with `DDURLSessionDelegate` through inheritance.
 private class InheritedURLSessionDelegate: DDURLSessionDelegate {

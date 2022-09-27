@@ -5,7 +5,7 @@
  */
 
 import Foundation
-import Datadog
+import DatadogSDK
 
 internal class TrackingConsentBaseScenario {
     func configureSDK(builder: Datadog.Configuration.Builder) {

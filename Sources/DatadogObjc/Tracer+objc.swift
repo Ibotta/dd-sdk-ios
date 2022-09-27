@@ -5,10 +5,10 @@
  */
 
 import Foundation
-import class Datadog.Tracer
-import protocol Datadog.OTTracer
-import struct Datadog.OTReference
-import class Datadog.HTTPHeadersWriter
+import class DatadogSDK.Tracer
+import protocol DatadogSDK.OTTracer
+import struct DatadogSDK.OTReference
+import class DatadogSDK.HTTPHeadersWriter
 
 @objc
 public class DDTracer: NSObject, DatadogObjc.OTTracer {
@@ -20,9 +20,9 @@ public class DDTracer: NSObject, DatadogObjc.OTTracer {
 
     // MARK: - Internal
 
-    internal let swiftTracer: Datadog.OTTracer
+    internal let swiftTracer: DatadogSDK.OTTracer
 
-    internal init(swiftTracer: Datadog.OTTracer) {
+    internal init(swiftTracer: DatadogSDK.OTTracer) {
         self.swiftTracer = swiftTracer
     }
 
@@ -31,7 +31,7 @@ public class DDTracer: NSObject, DatadogObjc.OTTracer {
     @objc
     public convenience init(configuration: DDTracerConfiguration) {
         self.init(
-            swiftTracer: Datadog.Tracer.initialize(
+            swiftTracer: DatadogSDK.Tracer.initialize(
                 configuration: configuration.swiftConfiguration
             )
         )

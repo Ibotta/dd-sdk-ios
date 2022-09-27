@@ -6,7 +6,7 @@
 
 import XCTest
 import UIKit
-@testable import Datadog
+@testable import DatadogSDK
 
 class RUMMonitorTests: XCTestCase {
     private var core: DatadogCoreMock! // swiftlint:disable:this implicitly_unwrapped_optional

@@ -4,7 +4,7 @@
  * Copyright 2019-2020 Datadog, Inc.
  */
 
-@testable import Datadog
+@testable import DatadogSDK
 
 internal extension DDRUMMonitor {
     var dd: RUMMonitor { self as! RUMMonitor }

@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 class RUMScopeTests: XCTestCase {
     /// A mock `RUMScope` that completes or not based on the configuration.

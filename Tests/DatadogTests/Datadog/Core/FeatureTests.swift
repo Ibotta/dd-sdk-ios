@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 class FeatureStorageTests: XCTestCase {
     let queue = DispatchQueue(label: "feature-storage-test")

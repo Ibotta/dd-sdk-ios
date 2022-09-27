@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 class URLSessionInterceptorTests: XCTestCase {
     private var core: DatadogCoreMock! // swiftlint:disable:this implicitly_unwrapped_optional

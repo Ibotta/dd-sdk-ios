@@ -5,7 +5,7 @@
  */
 
 import XCTest
-import Datadog
+import DatadogSDK
 import DatadogObjc
 
 @objc

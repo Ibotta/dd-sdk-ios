@@ -4,7 +4,7 @@
  * Copyright 2019-2020 Datadog, Inc.
  */
 
-@testable import Datadog
+@testable import DatadogSDK
 
 /*
  NOTE: The casting methods defined here do shadow the ones defined in `Datadog.Casting`.

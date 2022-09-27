@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
  class SamplerTests: XCTestCase {
      private let measurements = 0..<500

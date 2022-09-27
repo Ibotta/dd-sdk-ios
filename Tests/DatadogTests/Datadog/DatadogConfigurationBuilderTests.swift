@@ -5,7 +5,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 extension Datadog.Configuration.DatadogEndpoint: EquatableInTests {}
 extension Datadog.Configuration.LogsEndpoint: EquatableInTests {}

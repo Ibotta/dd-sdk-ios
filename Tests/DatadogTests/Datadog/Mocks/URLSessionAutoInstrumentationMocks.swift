@@ -5,7 +5,7 @@
  */
 
 import Foundation
-@testable import Datadog
+@testable import DatadogSDK
 
 extension URLSession {
     static func mockWith(_ delegate: URLSessionDelegate) -> URLSession {

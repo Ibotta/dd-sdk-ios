@@ -8,7 +8,7 @@
  */
 
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 final class KronosNTPPacketTests: XCTestCase {
     func testToData() {

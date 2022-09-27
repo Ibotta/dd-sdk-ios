@@ -5,7 +5,7 @@
  */
 
 import SwiftUI
-import Datadog
+import DatadogSDK
 
 @available(iOS 13, *)
 internal class DebugRUMSessionViewController: UIHostingController<DebugRUMSessionView> {

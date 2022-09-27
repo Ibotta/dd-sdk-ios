@@ -5,7 +5,7 @@
  */
 
 import CrashReporter
-import Datadog
+import DatadogSDK
 
 internal extension PLCrashReporterConfig {
     /// `PLCR` configuration used for `DatadogCrashReporting`

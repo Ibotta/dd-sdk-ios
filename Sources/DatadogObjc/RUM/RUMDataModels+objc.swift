@@ -4,7 +4,7 @@
  * Copyright 2019-2020 Datadog, Inc.
  */
 
-import Datadog
+import DatadogSDK
 import Foundation
 
 // This file was generated from JSON Schema. Do not modify it directly.

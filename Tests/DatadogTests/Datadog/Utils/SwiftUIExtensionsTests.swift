@@ -8,7 +8,7 @@
 
 import XCTest
 import SwiftUI
-@testable import Datadog
+@testable import DatadogSDK
 
 @available(iOS 13, tvOS 13, *)
 class CustomHostingController: UIHostingController<AnyView> {}

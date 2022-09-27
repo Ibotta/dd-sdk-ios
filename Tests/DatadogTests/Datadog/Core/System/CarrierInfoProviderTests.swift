@@ -9,7 +9,7 @@
 import XCTest
 import CoreTelephony
 
-@testable import Datadog
+@testable import DatadogSDK
 
 class CarrierInfoProviderTests: XCTestCase {
     /// Mock `CTTelephonyNetworkInfo` when user’s cellular service provider is available.

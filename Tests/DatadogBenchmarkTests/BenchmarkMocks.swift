@@ -4,7 +4,7 @@
  * Copyright 2019-2020 Datadog, Inc.
  */
 
-@testable import Datadog
+@testable import DatadogSDK
 
 private struct DateCorrectorMock: DateCorrector {
     let offset: TimeInterval = 0

@@ -6,7 +6,7 @@
 
 import Foundation
 import XCTest
-@testable import Datadog
+@testable import DatadogSDK
 
 /// Creates `Directory` pointing to unique subfolder in `/var/folders/`.
 /// Does not create the subfolder - it must be later created with `.create()`.
