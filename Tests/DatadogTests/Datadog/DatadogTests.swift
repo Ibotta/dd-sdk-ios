@@ -9,17 +9,17 @@ import XCTest
 
 class DatadogTests: XCTestCase {
     private var printFunction: PrintFunctionMock! // swiftlint:disable:this implicitly_unwrapped_optional
-    private var defaultBuilder: Datadog.Configuration.Builder {
-        Datadog.Configuration.builderUsing(clientToken: "abc-123", environment: "tests")
+    private var defaultBuilder: DatadogSDK.Configuration.Builder {
+        DatadogSDK.Configuration.builderUsing(clientToken: "abc-123", environment: "tests")
     }
-    private var rumBuilder: Datadog.Configuration.Builder {
-        Datadog.Configuration.builderUsing(rumApplicationID: "rum-123", clientToken: "abc-123", environment: "tests")
+    private var rumBuilder: DatadogSDK.Configuration.Builder {
+        DatadogSDK.Configuration.builderUsing(rumApplicationID: "rum-123", clientToken: "abc-123", environment: "tests")
     }
 
     override func setUp() {
         super.setUp()
 
-        XCTAssertFalse(Datadog.isInitialized)
+        XCTAssertFalse(DatadogSDK.isInitialized)
         printFunction = PrintFunctionMock()
         consolePrint = printFunction.print
     }
@@ -27,38 +27,38 @@ class DatadogTests: XCTestCase {
     override func tearDown() {
         consolePrint = { print($0) }
         printFunction = nil
-        XCTAssertFalse(Datadog.isInitialized)
+        XCTAssertFalse(DatadogSDK.isInitialized)
         super.tearDown()
     }
 
     // MARK: - Initializing with different configurations
 
     func testGivenDefaultConfiguration_itCanBeInitialized() {
-        Datadog.initialize(
+        DatadogSDK.initialize(
             appContext: .mockAny(),
             trackingConsent: .mockRandom(),
             configuration: defaultBuilder.build()
         )
-        XCTAssertTrue(Datadog.isInitialized)
-        Datadog.flushAndDeinitialize()
+        XCTAssertTrue(DatadogSDK.isInitialized)
+        DatadogSDK.flushAndDeinitialize()
     }
 
     func testGivenDefaultRUMConfiguration_itCanBeInitialized() {
-        Datadog.initialize(
+        DatadogSDK.initialize(
             appContext: .mockAny(),
             trackingConsent: .mockRandom(),
             configuration: rumBuilder.build()
         )
-        XCTAssertTrue(Datadog.isInitialized)
-        Datadog.flushAndDeinitialize()
+        XCTAssertTrue(DatadogSDK.isInitialized)
+        DatadogSDK.flushAndDeinitialize()
     }
 
     func testGivenInvalidConfiguration_itPrintsError() {
-        let invalidConfiguration = Datadog.Configuration
+        let invalidConfiguration = DatadogSDK.Configuration
             .builderUsing(clientToken: "", environment: "tests")
             .build()
 
-        Datadog.initialize(
+        DatadogSDK.initialize(
             appContext: .mockAny(),
             trackingConsent: .mockRandom(),
             configuration: invalidConfiguration
@@ -68,16 +68,16 @@ class DatadogTests: XCTestCase {
             printFunction.printedMessage,
             "🔥 Datadog SDK usage error: `clientToken` cannot be empty."
         )
-        XCTAssertFalse(Datadog.isInitialized)
+        XCTAssertFalse(DatadogSDK.isInitialized)
     }
 
     func testGivenValidConfiguration_whenInitializedMoreThanOnce_itPrintsError() {
-        Datadog.initialize(
+        DatadogSDK.initialize(
             appContext: .mockAny(),
             trackingConsent: .mockRandom(),
             configuration: defaultBuilder.build()
         )
-        Datadog.initialize(
+        DatadogSDK.initialize(
             appContext: .mockAny(),
             trackingConsent: .mockRandom(),
             configuration: rumBuilder.build()
@@ -88,14 +88,14 @@ class DatadogTests: XCTestCase {
             "🔥 Datadog SDK usage error: SDK is already initialized."
         )
 
-        Datadog.flushAndDeinitialize()
+        DatadogSDK.flushAndDeinitialize()
     }
 
     // MARK: - Toggling features
 
     func testEnablingAndDisablingFeatures() {
-        func verify(configuration: Datadog.Configuration, verificationBlock: () -> Void) {
-            Datadog.initialize(
+        func verify(configuration: DatadogSDK.Configuration, verificationBlock: () -> Void) {
+            DatadogSDK.initialize(
                 appContext: .mockAny(),
                 trackingConsent: .mockRandom(),
                 configuration: configuration
@@ -104,7 +104,7 @@ class DatadogTests: XCTestCase {
 
             defaultDatadogCore.v1.feature(RUMInstrumentation.self)?.viewControllerSwizzler?.unswizzle()
             defaultDatadogCore.v1.feature(URLSessionAutoInstrumentation.self)?.swizzler.unswizzle()
-            Datadog.flushAndDeinitialize()
+            DatadogSDK.flushAndDeinitialize()
         }
 
         defer {
@@ -289,7 +289,7 @@ class DatadogTests: XCTestCase {
 
     func testSupplyingDebugLaunchArgument_itOverridesUserSettings() throws {
         let mockProcessInfo = ProcessInfoMock(
-            arguments: [Datadog.LaunchArguments.Debug]
+            arguments: [DatadogSDK.LaunchArguments.Debug]
         )
 
         let configuration = rumBuilder
@@ -298,7 +298,7 @@ class DatadogTests: XCTestCase {
             .set(batchSize: .medium)
             .build()
 
-        Datadog.initialize(
+        DatadogSDK.initialize(
             appContext: .mockWith(
                 processInfo: mockProcessInfo
             ),
@@ -316,22 +316,22 @@ class DatadogTests: XCTestCase {
         let rum = core.v1.feature(RUMFeature.self)
         XCTAssertEqual(core.configuration.performance, expectedPerformancePreset)
         XCTAssertEqual(rum?.configuration.sessionSampler.samplingRate, 100)
-        XCTAssertEqual(Datadog.verbosityLevel, .debug)
+        XCTAssertEqual(DatadogSDK.verbosityLevel, .debug)
 
         // Clear default verbosity after this test
-        Datadog.verbosityLevel = nil
-        Datadog.flushAndDeinitialize()
+        DatadogSDK.verbosityLevel = nil
+        DatadogSDK.flushAndDeinitialize()
     }
 
     func testSupplyingRumDebugLaunchArgument_itSetsRumDebug() {
         let mockProcessInfo = ProcessInfoMock(
-            arguments: [Datadog.LaunchArguments.DebugRUM]
+            arguments: [DatadogSDK.LaunchArguments.DebugRUM]
         )
 
         let configuration = rumBuilder
             .build()
 
-        Datadog.initialize(
+        DatadogSDK.initialize(
             appContext: .mockWith(
                 processInfo: mockProcessInfo
             ),
@@ -339,11 +339,11 @@ class DatadogTests: XCTestCase {
             configuration: configuration
         )
 
-        XCTAssertTrue(Datadog.debugRUM)
+        XCTAssertTrue(DatadogSDK.debugRUM)
 
         // Clear debug after test
-        Datadog.debugRUM = false
-        Datadog.flushAndDeinitialize()
+        DatadogSDK.debugRUM = false
+        DatadogSDK.flushAndDeinitialize()
     }
 
     // MARK: - Public APIs
@@ -352,7 +352,7 @@ class DatadogTests: XCTestCase {
         let initialConsent: TrackingConsent = .mockRandom()
         let nextConsent: TrackingConsent = .mockRandom()
 
-        Datadog.initialize(
+        DatadogSDK.initialize(
             appContext: .mockAny(),
             trackingConsent: initialConsent,
             configuration: defaultBuilder.build()
@@ -361,15 +361,15 @@ class DatadogTests: XCTestCase {
         let core = defaultDatadogCore as? DatadogCore
         XCTAssertEqual(core?.dependencies.consentProvider.currentValue, initialConsent)
 
-        Datadog.set(trackingConsent: nextConsent)
+        DatadogSDK.set(trackingConsent: nextConsent)
 
         XCTAssertEqual(core?.dependencies.consentProvider.currentValue, nextConsent)
 
-        Datadog.flushAndDeinitialize()
+        DatadogSDK.flushAndDeinitialize()
     }
 
     func testUserInfo() {
-        Datadog.initialize(
+        DatadogSDK.initialize(
             appContext: .mockAny(),
             trackingConsent: .mockRandom(),
             configuration: defaultBuilder.build()
@@ -383,7 +383,7 @@ class DatadogTests: XCTestCase {
         XCTAssertNil(core?.dependencies.userInfoProvider.value.name)
         XCTAssertEqual(core?.dependencies.userInfoProvider.value.extraInfo as? [String: Int], [:])
 
-        Datadog.setUserInfo(
+        DatadogSDK.setUserInfo(
             id: "foo",
             name: "bar",
             email: "foo@bar.com",
@@ -395,19 +395,19 @@ class DatadogTests: XCTestCase {
         XCTAssertEqual(core?.dependencies.userInfoProvider.value.email, "foo@bar.com")
         XCTAssertEqual(core?.dependencies.userInfoProvider.value.extraInfo as? [String: Int], ["abc": 123])
 
-        Datadog.flushAndDeinitialize()
+        DatadogSDK.flushAndDeinitialize()
     }
 
     func testDefaultVerbosityLevel() {
-        XCTAssertNil(Datadog.verbosityLevel)
+        XCTAssertNil(DatadogSDK.verbosityLevel)
     }
 
     func testDefaultDebugRUM() {
-        XCTAssertFalse(Datadog.debugRUM)
+        XCTAssertFalse(DatadogSDK.debugRUM)
     }
 
     func testDeprecatedAPIs() {
-        (Datadog.self as DatadogDeprecatedAPIs.Type).initialize(
+        (DatadogSDK.self as DatadogDeprecatedAPIs.Type).initialize(
             appContext: .mockAny(),
             configuration: defaultBuilder.build()
         )
@@ -420,11 +420,11 @@ class DatadogTests: XCTestCase {
             "When using deprecated Datadog initialization API the consent should be set to `.granted`"
         )
 
-        Datadog.flushAndDeinitialize()
+        DatadogSDK.flushAndDeinitialize()
     }
 
     func testGivenDataStoredInAllFeatureDirectories_whenClearAllDataIsUsed_allFilesAreRemoved() throws {
-        Datadog.initialize(
+        DatadogSDK.initialize(
             appContext: .mockAny(),
             trackingConsent: .mockRandom(),
             configuration: rumBuilder
@@ -455,7 +455,7 @@ class DatadogTests: XCTestCase {
         XCTAssertEqual(numberOfFiles, 6, "Each feature stores 2 files - one authorised and one unauthorised")
 
         // When
-        Datadog.clearAllData()
+        DatadogSDK.clearAllData()
 
         // Wait for async clear completion in all features:
         core.readWriteQueue.sync {}
@@ -464,7 +464,7 @@ class DatadogTests: XCTestCase {
         let newNumberOfFiles = try allDirectories.reduce(0, { acc, nextDirectory in return try acc + nextDirectory.files().count })
         XCTAssertEqual(newNumberOfFiles, 0, "All files must be removed")
 
-        Datadog.flushAndDeinitialize()
+        DatadogSDK.flushAndDeinitialize()
     }
 
     func testServerDateProvider() throws {
@@ -472,7 +472,7 @@ class DatadogTests: XCTestCase {
         let serverDateProvider = ServerDateProviderMock()
 
         // When
-        Datadog.initialize(
+        DatadogSDK.initialize(
             appContext: .mockAny(),
             trackingConsent: .mockRandom(),
             configuration: defaultBuilder
@@ -486,7 +486,7 @@ class DatadogTests: XCTestCase {
         let core = try XCTUnwrap(defaultDatadogCore as? DatadogCore)
         XCTAssertEqual(core.dependencies.dateCorrector.offset, -1)
 
-        Datadog.flushAndDeinitialize()
+        DatadogSDK.flushAndDeinitialize()
     }
 }
 
@@ -533,6 +533,6 @@ class AppContextTests: XCTestCase {
 
 /// An assistant protocol to shim the deprecated APIs and call them with no compiler warning.
 private protocol DatadogDeprecatedAPIs {
-    static func initialize(appContext: AppContext, configuration: Datadog.Configuration)
+    static func initialize(appContext: AppContext, configuration: DatadogSDK.Configuration)
 }
-extension Datadog: DatadogDeprecatedAPIs {}
+extension DatadogSDK: DatadogDeprecatedAPIs {}

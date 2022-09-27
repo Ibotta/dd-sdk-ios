@@ -7,7 +7,7 @@
 import Foundation
 
 /// Datadog SDK configuration object.
-public class Datadog {
+public class DatadogSDK {
     /// Provides information about the app.
     public struct AppContext {
         internal let bundleType: BundleType
@@ -93,7 +93,7 @@ public class Datadog {
             let debugRumOverride = appContext.processInfo.arguments.contains(LaunchArguments.DebugRUM)
             if debugRumOverride {
                 consolePrint("⚠️ Overriding RUM debugging due to \(LaunchArguments.DebugRUM) launch argument")
-                Datadog.debugRUM = true
+                DatadogSDK.debugRUM = true
             }
         } catch {
             consolePrint("\(error)")
@@ -169,7 +169,7 @@ public class Datadog {
         initialTrackingConsent: TrackingConsent,
         configuration: FeaturesConfiguration
     ) throws {
-        if Datadog.isInitialized {
+        if DatadogSDK.isInitialized {
             throw ProgrammerError(description: "SDK is already initialized.")
         }
 
@@ -318,7 +318,7 @@ public class Datadog {
 #endif
 
     internal static func internalFlushAndDeinitialize() {
-        assert(Datadog.isInitialized, "SDK must be first initialized.")
+        assert(DatadogSDK.isInitialized, "SDK must be first initialized.")
 
         // Tear down and deinitialize all features:
         let logging = defaultDatadogCore.v1.feature(LoggingFeature.self)
@@ -349,7 +349,7 @@ public class Datadog {
 }
 
 /// Convenience typealias.
-internal typealias AppContext = Datadog.AppContext
+internal typealias AppContext = DatadogSDK.AppContext
 
 /// An exception thrown due to programmer error when calling SDK public API.
 /// It makes the SDK non-functional and print the error to developer in debugger console..

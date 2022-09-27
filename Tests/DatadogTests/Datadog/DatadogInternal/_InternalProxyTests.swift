@@ -28,12 +28,12 @@ class _InternalProxyTests: XCTestCase {
 
     func testWhenNewVersionIsSetInConfigurationProxy_thenItChangesAppVersionInCore() throws {
         // Given
-        Datadog.initialize(appContext: .mockAny(), trackingConsent: .mockRandom(), configuration: .mockAny())
-        defer { Datadog.flushAndDeinitialize() }
+        DatadogSDK.initialize(appContext: .mockAny(), trackingConsent: .mockRandom(), configuration: .mockAny())
+        defer { DatadogSDK.flushAndDeinitialize() }
 
         // When
         let randomVersion: String = .mockRandom()
-        Datadog._internal._configuration.set(customVersion: randomVersion)
+        DatadogSDK._internal._configuration.set(customVersion: randomVersion)
 
         // Then
         let core = try XCTUnwrap(defaultDatadogCore as? DatadogCore)

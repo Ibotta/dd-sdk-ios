@@ -203,7 +203,7 @@ public class RUMMonitor: DDRUMMonitor, RUMCommandSubscriber {
 
         _internal = _RUMInternalProxy(subscriber: self)
 
-        if Datadog.debugRUM {
+        if DatadogSDK.debugRUM {
             self.enableRUMDebugging(true)
         }
 

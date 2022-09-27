@@ -908,10 +908,10 @@ class TracerTests: XCTestCase {
         defer { consolePrint = { print($0) } }
 
         // given
-        Datadog.initialize(
+        DatadogSDK.initialize(
             appContext: .mockAny(),
             trackingConsent: .mockRandom(),
-            configuration: Datadog.Configuration.builderUsing(clientToken: "abc.def", environment: "tests")
+            configuration: DatadogSDK.Configuration.builderUsing(clientToken: "abc.def", environment: "tests")
                 .enableTracing(false)
                 .build()
         )
@@ -926,15 +926,15 @@ class TracerTests: XCTestCase {
         )
         XCTAssertTrue(tracer is DDNoopTracer)
 
-        Datadog.flushAndDeinitialize()
+        DatadogSDK.flushAndDeinitialize()
     }
 
     func testGivenLoggingFeatureDisabled_whenSendingLogFromSpan_itPrintsWarning() {
         // given
-        Datadog.initialize(
+        DatadogSDK.initialize(
             appContext: .mockAny(),
             trackingConsent: .mockRandom(),
-            configuration: Datadog.Configuration.builderUsing(clientToken: "abc.def", environment: "tests")
+            configuration: DatadogSDK.Configuration.builderUsing(clientToken: "abc.def", environment: "tests")
                 .enableLogging(false)
                 .build()
         )
@@ -951,7 +951,7 @@ class TracerTests: XCTestCase {
         tracer.dd.queue.sync {} // wait synchronizing span's internal state
         XCTAssertEqual(dd.logger.warnLog?.message, "The log for span \"foo\" will not be send, because the Logging feature is disabled.")
 
-        Datadog.flushAndDeinitialize()
+        DatadogSDK.flushAndDeinitialize()
     }
 
     func testGivenTracerInitialized_whenInitializingAnotherTime_itPrintsError() {
@@ -960,10 +960,10 @@ class TracerTests: XCTestCase {
         defer { consolePrint = { print($0) } }
 
         // given
-        Datadog.initialize(
+        DatadogSDK.initialize(
             appContext: .mockAny(),
             trackingConsent: .mockRandom(),
-            configuration: Datadog.Configuration.builderUsing(clientToken: .mockAny(), environment: .mockAny()).build()
+            configuration: DatadogSDK.Configuration.builderUsing(clientToken: .mockAny(), environment: .mockAny()).build()
         )
         Global.sharedTracer = Tracer.initialize(configuration: .init())
         defer { Global.sharedTracer = DDNoopGlobals.tracer }
@@ -979,19 +979,19 @@ class TracerTests: XCTestCase {
             """
         )
 
-        Datadog.flushAndDeinitialize()
+        DatadogSDK.flushAndDeinitialize()
     }
 
     func testGivenOnlyTracingAutoInstrumentationEnabled_whenTracerIsNotRegistered_itPrintsWarningsOnEachFirstPartyRequest() throws {
-        Datadog.initialize(
+        DatadogSDK.initialize(
             appContext: .mockAny(),
             trackingConsent: .mockRandom(),
-            configuration: Datadog.Configuration
+            configuration: DatadogSDK.Configuration
                 .builderUsing(clientToken: .mockAny(), environment: .mockAny())
                 .trackURLSession(firstPartyHosts: [.mockAny()])
                 .build()
         )
-        defer { Datadog.flushAndDeinitialize() }
+        defer { DatadogSDK.flushAndDeinitialize() }
 
         let dd = DD.mockWith(logger: CoreLoggerMock())
         defer { dd.reset() }

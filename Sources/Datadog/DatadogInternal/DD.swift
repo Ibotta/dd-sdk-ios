@@ -21,7 +21,7 @@ internal struct DD {
         dateProvider: SystemDateProvider(),
         timeZone: .current,
         printFunction: consolePrint,
-        verbosityLevel: { Datadog.verbosityLevel }
+        verbosityLevel: { DatadogSDK.verbosityLevel }
     )
 
     /// The telemetry monitor providing methods to send debug information

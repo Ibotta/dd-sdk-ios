@@ -12,11 +12,11 @@ import XCTest
 class DDDatadogTests: XCTestCase {
     override func setUp() {
         super.setUp()
-        XCTAssertFalse(Datadog.isInitialized)
+        XCTAssertFalse(DatadogSDK.isInitialized)
     }
 
     override func tearDown() {
-        XCTAssertFalse(Datadog.isInitialized)
+        XCTAssertFalse(DatadogSDK.isInitialized)
         super.tearDown()
     }
 
@@ -32,7 +32,7 @@ class DDDatadogTests: XCTestCase {
             configuration: configBuilder.build()
         )
 
-        XCTAssertTrue(Datadog.isInitialized)
+        XCTAssertTrue(DatadogSDK.isInitialized)
 
         let urlSessionInstrumentation = defaultDatadogCore.v1.feature(URLSessionAutoInstrumentation.self)
         XCTAssertEqual(defaultDatadogCore.v1.context?.applicationName, "app-name")
@@ -40,7 +40,7 @@ class DDDatadogTests: XCTestCase {
         XCTAssertNotNil(urlSessionInstrumentation)
 
         urlSessionInstrumentation?.swizzler.unswizzle()
-        Datadog.flushAndDeinitialize()
+        DatadogSDK.flushAndDeinitialize()
 
         XCTAssertNil(defaultDatadogCore.v1.feature(LoggingFeature.self))
         XCTAssertNil(defaultDatadogCore.v1.feature(URLSessionAutoInstrumentation.self))
@@ -65,7 +65,7 @@ class DDDatadogTests: XCTestCase {
 
         XCTAssertEqual(core?.dependencies.consentProvider.currentValue, nextConsent.swift)
 
-        Datadog.flushAndDeinitialize()
+        DatadogSDK.flushAndDeinitialize()
     }
 
     // MARK: - Setting user info
@@ -104,7 +104,7 @@ class DDDatadogTests: XCTestCase {
         XCTAssertNil(userInfo.value.email)
         XCTAssertTrue(userInfo.value.extraInfo.isEmpty)
 
-        Datadog.flushAndDeinitialize()
+        DatadogSDK.flushAndDeinitialize()
     }
 
     // MARK: - Changing SDK verbosity level
@@ -117,19 +117,19 @@ class DDDatadogTests: XCTestCase {
     ]
 
     func testItForwardsSettingVerbosityLevelToSwift() {
-        defer { Datadog.verbosityLevel = nil }
+        defer { DatadogSDK.verbosityLevel = nil }
 
         zip(swiftVerbosityLevels, objcVerbosityLevels).forEach { swiftLevel, objcLevel in
             DDDatadog.setVerbosityLevel(objcLevel)
-            XCTAssertEqual(Datadog.verbosityLevel, swiftLevel)
+            XCTAssertEqual(DatadogSDK.verbosityLevel, swiftLevel)
         }
     }
 
     func testItGetsVerbosityLevelFromSwift() {
-        defer { Datadog.verbosityLevel = nil }
+        defer { DatadogSDK.verbosityLevel = nil }
 
         zip(swiftVerbosityLevels, objcVerbosityLevels).forEach { swiftLevel, objcLevel in
-            Datadog.verbosityLevel = swiftLevel
+            DatadogSDK.verbosityLevel = swiftLevel
             XCTAssertEqual(DDDatadog.verbosityLevel(), objcLevel)
         }
     }

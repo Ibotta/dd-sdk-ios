@@ -110,7 +110,7 @@ extension FeaturesConfiguration {
     ///
     /// Throws an error on invalid user input, i.e. broken custom URL.
     /// Prints a warning if configuration is inconsistent, i.e. RUM is enabled, but RUM Application ID was not specified.
-    init(configuration: Datadog.Configuration, appContext: AppContext, hostsSanitizer: HostsSanitizing = HostsSanitizer()) throws {
+    init(configuration: DatadogSDK.Configuration, appContext: AppContext, hostsSanitizer: HostsSanitizing = HostsSanitizer()) throws {
         var logging: Logging?
         var tracing: Tracing?
         var rum: RUM?
@@ -144,15 +144,15 @@ extension FeaturesConfiguration {
             rumEndpoint = .custom(url: customRUMEndpoint.absoluteString)
         }
 
-        let source = (configuration.additionalConfiguration[CrossPlatformAttributes.ddsource] as? String) ?? Datadog.Constants.ddsource
+        let source = (configuration.additionalConfiguration[CrossPlatformAttributes.ddsource] as? String) ?? DatadogSDK.Constants.ddsource
         let sdkVersion = (configuration.additionalConfiguration[CrossPlatformAttributes.sdkVersion] as? String) ?? __sdkVersion
         let appVersion = (configuration.additionalConfiguration[CrossPlatformAttributes.version] as? String) ?? appContext.bundleVersion ?? "0.0.0"
         let variant = configuration.additionalConfiguration[CrossPlatformAttributes.variant] as? String
 
-        let debugOverride = appContext.processInfo.arguments.contains(Datadog.LaunchArguments.Debug)
+        let debugOverride = appContext.processInfo.arguments.contains(DatadogSDK.LaunchArguments.Debug)
         if debugOverride {
-            consolePrint("⚠️ Overriding sampling, verbosity, and upload frequency due to \(Datadog.LaunchArguments.Debug) launch argument")
-            Datadog.verbosityLevel = .debug
+            consolePrint("⚠️ Overriding sampling, verbosity, and upload frequency due to \(DatadogSDK.LaunchArguments.Debug) launch argument")
+            DatadogSDK.verbosityLevel = .debug
         }
 
         let common = Common(
@@ -292,7 +292,7 @@ extension FeaturesConfiguration {
     }
 }
 
-extension Datadog.Configuration.VitalsFrequency {
+extension DatadogSDK.Configuration.VitalsFrequency {
     var timeInterval: TimeInterval? {
         switch self {
         case .frequent: return 0.1

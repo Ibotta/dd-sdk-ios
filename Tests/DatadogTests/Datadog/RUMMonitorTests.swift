@@ -1291,27 +1291,27 @@ class RUMMonitorTests: XCTestCase {
         XCTAssertNil(monitor.debugging)
 
         // when & then
-        Datadog.debugRUM = true
+        DatadogSDK.debugRUM = true
         monitor.flush()
         XCTAssertNotNil(monitor.debugging)
 
-        Datadog.debugRUM = false
+        DatadogSDK.debugRUM = false
         monitor.flush()
         XCTAssertNil(monitor.debugging)
     }
 
     func testGivenRUMAutoInstrumentationEnabled_whenRUMMonitorIsNotRegistered_itPrintsWarningsOnEachEvent() throws {
-        Datadog.initialize(
+        DatadogSDK.initialize(
             appContext: .mockAny(),
             trackingConsent: .mockRandom(),
-            configuration: Datadog.Configuration
+            configuration: DatadogSDK.Configuration
                 .builderUsing(rumApplicationID: .mockAny(), clientToken: .mockAny(), environment: .mockAny())
                 .trackURLSession(firstPartyHosts: [.mockAny()])
                 .trackUIKitRUMViews(using: UIKitRUMViewsPredicateMock(result: .init(name: .mockAny())))
                 .trackUIKitRUMActions()
                 .build()
         )
-        defer { Datadog.flushAndDeinitialize() }
+        defer { DatadogSDK.flushAndDeinitialize() }
 
         let dd = DD.mockWith(logger: CoreLoggerMock())
         defer { dd.reset() }

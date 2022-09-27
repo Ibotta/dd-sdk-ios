@@ -60,7 +60,7 @@
 		61133BDB2423979B00786299 /* DatadogConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61133BB52423979B00786299 /* DatadogConfiguration.swift */; };
 		61133BDC2423979B00786299 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61133BB62423979B00786299 /* Logger.swift */; };
 		61133BDF2423979B00786299 /* SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61133BBA2423979B00786299 /* SwiftExtensions.swift */; };
-		61133BE02423979B00786299 /* Datadog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61133BBB2423979B00786299 /* Datadog.swift */; };
+		61133BE02423979B00786299 /* DatadogSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61133BBB2423979B00786299 /* DatadogSDK.swift */; };
 		61133BE32423979B00786299 /* UserInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61133BC02423979B00786299 /* UserInfoProvider.swift */; };
 		61133BE42423979B00786299 /* LogEventEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61133BC22423979B00786299 /* LogEventEncoder.swift */; };
 		61133BE52423979B00786299 /* LogEventBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61133BC32423979B00786299 /* LogEventBuilder.swift */; };
@@ -753,7 +753,7 @@
 		D2CB6E7827C50EAE00A62B57 /* DDRUMMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614B0A5224EBFE5500A2A780 /* DDRUMMonitor.swift */; };
 		D2CB6E7927C50EAE00A62B57 /* UserInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61133BC02423979B00786299 /* UserInfoProvider.swift */; };
 		D2CB6E7A27C50EAE00A62B57 /* WebEventBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB4B867275103E40041CD03 /* WebEventBridge.swift */; };
-		D2CB6E7B27C50EAE00A62B57 /* Datadog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61133BBB2423979B00786299 /* Datadog.swift */; };
+		D2CB6E7B27C50EAE00A62B57 /* DatadogSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61133BBB2423979B00786299 /* DatadogSDK.swift */; };
 		D2CB6E7C27C50EAE00A62B57 /* CarrierInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61133BA22423979B00786299 /* CarrierInfoProvider.swift */; };
 		D2CB6E7D27C50EAE00A62B57 /* TracingFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C5A88F24509AA700DA608C /* TracingFeature.swift */; };
 		D2CB6E7E27C50EAE00A62B57 /* RUMMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E5333524B84B43003D6C4E /* RUMMonitor.swift */; };
@@ -1288,7 +1288,7 @@
 		61133BB52423979B00786299 /* DatadogConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatadogConfiguration.swift; sourceTree = "<group>"; };
 		61133BB62423979B00786299 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		61133BBA2423979B00786299 /* SwiftExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftExtensions.swift; sourceTree = "<group>"; };
-		61133BBB2423979B00786299 /* Datadog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Datadog.swift; sourceTree = "<group>"; };
+		61133BBB2423979B00786299 /* DatadogSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatadogSDK.swift; sourceTree = "<group>"; };
 		61133BC02423979B00786299 /* UserInfoProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoProvider.swift; sourceTree = "<group>"; };
 		61133BC22423979B00786299 /* LogEventEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogEventEncoder.swift; sourceTree = "<group>"; };
 		61133BC32423979B00786299 /* LogEventBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogEventBuilder.swift; sourceTree = "<group>"; };
@@ -2121,7 +2121,7 @@
 			isa = PBXGroup;
 			children = (
 				9E9EB37624468CE90002C80B /* Datadog.modulemap */,
-				61133BBB2423979B00786299 /* Datadog.swift */,
+				61133BBB2423979B00786299 /* DatadogSDK.swift */,
 				61133BB52423979B00786299 /* DatadogConfiguration.swift */,
 				61133BB62423979B00786299 /* Logger.swift */,
 				61E909E824A24DD3005EA2DE /* Global.swift */,
@@ -5197,7 +5197,7 @@
 				61133BE32423979B00786299 /* UserInfoProvider.swift in Sources */,
 				9EB4B868275103E40041CD03 /* WebEventBridge.swift in Sources */,
 				D2B3F04D282A85FD00C2B5EE /* DatadogCore.swift in Sources */,
-				61133BE02423979B00786299 /* Datadog.swift in Sources */,
+				61133BE02423979B00786299 /* DatadogSDK.swift in Sources */,
 				61E945E32869BF3D00A946C4 /* CoreLogger.swift in Sources */,
 				61133BCB2423979B00786299 /* CarrierInfoProvider.swift in Sources */,
 				61C5A89024509AA700DA608C /* TracingFeature.swift in Sources */,
@@ -5838,7 +5838,7 @@
 				D2CB6E7927C50EAE00A62B57 /* UserInfoProvider.swift in Sources */,
 				D2CB6E7A27C50EAE00A62B57 /* WebEventBridge.swift in Sources */,
 				D2EFA86C286DCDBB00F1FAA6 /* DateCorrector.swift in Sources */,
-				D2CB6E7B27C50EAE00A62B57 /* Datadog.swift in Sources */,
+				D2CB6E7B27C50EAE00A62B57 /* DatadogSDK.swift in Sources */,
 				D2CB6E7C27C50EAE00A62B57 /* CarrierInfoProvider.swift in Sources */,
 				D2CB6E7D27C50EAE00A62B57 /* TracingFeature.swift in Sources */,
 				D2CB6E7E27C50EAE00A62B57 /* RUMMonitor.swift in Sources */,

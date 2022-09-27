@@ -30,8 +30,8 @@ extension ConsentProvider {
     }
 }
 
-extension Datadog.Configuration {
-    static func mockAny() -> Datadog.Configuration { .mockWith() }
+extension DatadogSDK.Configuration {
+    static func mockAny() -> DatadogSDK.Configuration { .mockWith() }
 
     static func mockWith(
         rumApplicationID: String? = .mockAny(),
@@ -64,8 +64,8 @@ extension Datadog.Configuration {
         additionalConfiguration: [String: Any] = [:],
         proxyConfiguration: [AnyHashable: Any]? = nil,
         internalMonitoringClientToken: String? = nil
-    ) -> Datadog.Configuration {
-        return Datadog.Configuration(
+    ) -> DatadogSDK.Configuration {
+        return DatadogSDK.Configuration(
             rumApplicationID: rumApplicationID,
             clientToken: clientToken,
             environment: environment,
@@ -117,7 +117,7 @@ extension Sampler: AnyMockable, RandomMockable {
     }
 }
 
-typealias BatchSize = Datadog.Configuration.BatchSize
+typealias BatchSize = DatadogSDK.Configuration.BatchSize
 
 extension BatchSize: CaseIterable {
     public static var allCases: [Self] { [.small, .medium, .large] }
@@ -127,7 +127,7 @@ extension BatchSize: CaseIterable {
     }
 }
 
-typealias UploadFrequency = Datadog.Configuration.UploadFrequency
+typealias UploadFrequency = DatadogSDK.Configuration.UploadFrequency
 
 extension UploadFrequency: CaseIterable {
     public static var allCases: [Self] { [.frequent, .average, .rare] }
@@ -141,8 +141,8 @@ extension BundleType: CaseIterable {
     public static var allCases: [Self] { [.iOSApp, iOSAppExtension] }
 }
 
-extension Datadog.Configuration.DatadogEndpoint: AnyMockable, RandomMockable {
-    static func mockAny() -> Datadog.Configuration.DatadogEndpoint {
+extension DatadogSDK.Configuration.DatadogEndpoint: AnyMockable, RandomMockable {
+    static func mockAny() -> DatadogSDK.Configuration.DatadogEndpoint {
         return .us1
     }
 
@@ -151,19 +151,19 @@ extension Datadog.Configuration.DatadogEndpoint: AnyMockable, RandomMockable {
     }
 }
 
-extension Datadog.Configuration.LogsEndpoint {
+extension DatadogSDK.Configuration.LogsEndpoint {
     static func mockRandom() -> Self {
         return [.us1, .us3, .eu1, .us1_fed, .us, .eu, .gov, .custom(url: "http://example.com/api/")].randomElement()!
     }
 }
 
-extension Datadog.Configuration.TracesEndpoint {
+extension DatadogSDK.Configuration.TracesEndpoint {
     static func mockRandom() -> Self {
         return [.us1, .us3, .eu1, .us1_fed, .us, .eu, .gov, .custom(url: "http://example.com/api/")].randomElement()!
     }
 }
 
-extension Datadog.Configuration.RUMEndpoint {
+extension DatadogSDK.Configuration.RUMEndpoint {
     static func mockRandom() -> Self {
         return [.us1, .us3, .eu1, .us1_fed, .us, .eu, .gov, .custom(url: "http://example.com/api/")].randomElement()!
     }

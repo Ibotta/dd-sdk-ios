@@ -7,18 +7,18 @@
 import XCTest
 @testable import Datadog
 
-extension Datadog.Configuration.DatadogEndpoint: EquatableInTests {}
-extension Datadog.Configuration.LogsEndpoint: EquatableInTests {}
-extension Datadog.Configuration.TracesEndpoint: EquatableInTests {}
-extension Datadog.Configuration.RUMEndpoint: EquatableInTests {}
+extension DatadogSDK.Configuration.DatadogEndpoint: EquatableInTests {}
+extension DatadogSDK.Configuration.LogsEndpoint: EquatableInTests {}
+extension DatadogSDK.Configuration.TracesEndpoint: EquatableInTests {}
+extension DatadogSDK.Configuration.RUMEndpoint: EquatableInTests {}
 
 class DatadogConfigurationBuilderTests: XCTestCase {
     func testDefaultBuilder() {
-        let configuration = Datadog.Configuration
+        let configuration = DatadogSDK.Configuration
             .builderUsing(clientToken: "abc-123", environment: "tests")
             .build()
 
-        let rumConfiguration = Datadog.Configuration
+        let rumConfiguration = DatadogSDK.Configuration
             .builderUsing(rumApplicationID: "rum-app-id", clientToken: "abc-123", environment: "tests")
             .build()
 
@@ -76,7 +76,7 @@ class DatadogConfigurationBuilderTests: XCTestCase {
         let mockRUMLongTaskEvent: RUMLongTaskEvent = .mockRandom()
         let mockCrashReportingPlugin = CrashReportingPluginMock()
 
-        func customized(_ builder: Datadog.Configuration.Builder) -> Datadog.Configuration.Builder {
+        func customized(_ builder: DatadogSDK.Configuration.Builder) -> DatadogSDK.Configuration.Builder {
             _ = builder
                 .set(serviceName: "service-name")
                 .enableLogging(false)
@@ -120,11 +120,11 @@ class DatadogConfigurationBuilderTests: XCTestCase {
             return builder
         }
 
-        let defaultBuilder = Datadog.Configuration
+        let defaultBuilder = DatadogSDK.Configuration
             .builderUsing(clientToken: "abc-123", environment: "tests")
-        let defaultRUMBuilder = Datadog.Configuration
+        let defaultRUMBuilder = DatadogSDK.Configuration
             .builderUsing(rumApplicationID: "rum-app-id", clientToken: "abc-123", environment: "tests")
-        let rumBuilderWithDefaultValues = Datadog.Configuration
+        let rumBuilderWithDefaultValues = DatadogSDK.Configuration
             .builderUsing(rumApplicationID: "rum-app-id", clientToken: "abc-123", environment: "tests")
             .trackUIKitRUMViews()
             .trackUIKitRUMActions()
@@ -186,7 +186,7 @@ class DatadogConfigurationBuilderTests: XCTestCase {
     }
 
     func testDeprecatedAPIs() {
-        let builder = Datadog.Configuration.builderUsing(clientToken: "abc-123", environment: "tests")
+        let builder = DatadogSDK.Configuration.builderUsing(clientToken: "abc-123", environment: "tests")
         _ = (builder as ConfigurationBuilderDeprecatedAPIs).set(tracedHosts: ["example.com"])
         _ = (builder as ConfigurationBuilderDeprecatedAPIs).set(logsEndpoint: .eu1)
         _ = (builder as ConfigurationBuilderDeprecatedAPIs).set(tracesEndpoint: .eu1)
@@ -205,10 +205,10 @@ class DatadogConfigurationBuilderTests: XCTestCase {
 
 /// An assistant protocol to shim the deprecated APIs and call them with no compiler warning.
 private protocol ConfigurationBuilderDeprecatedAPIs {
-    func set(tracedHosts: Set<String>) -> Datadog.Configuration.Builder
-    func set(logsEndpoint: Datadog.Configuration.LogsEndpoint) -> Datadog.Configuration.Builder
-    func set(tracesEndpoint: Datadog.Configuration.TracesEndpoint) -> Datadog.Configuration.Builder
-    func set(rumEndpoint: Datadog.Configuration.RUMEndpoint) -> Datadog.Configuration.Builder
-    func trackUIKitActions(_ enabled: Bool) -> Datadog.Configuration.Builder
+    func set(tracedHosts: Set<String>) -> DatadogSDK.Configuration.Builder
+    func set(logsEndpoint: DatadogSDK.Configuration.LogsEndpoint) -> DatadogSDK.Configuration.Builder
+    func set(tracesEndpoint: DatadogSDK.Configuration.TracesEndpoint) -> DatadogSDK.Configuration.Builder
+    func set(rumEndpoint: DatadogSDK.Configuration.RUMEndpoint) -> DatadogSDK.Configuration.Builder
+    func trackUIKitActions(_ enabled: Bool) -> DatadogSDK.Configuration.Builder
 }
-extension Datadog.Configuration.Builder: ConfigurationBuilderDeprecatedAPIs {}
+extension DatadogSDK.Configuration.Builder: ConfigurationBuilderDeprecatedAPIs {}

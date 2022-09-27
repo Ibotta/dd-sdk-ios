@@ -132,7 +132,7 @@ class URLSessionBaseScenario: NSObject {
         }
     }
 
-    func configureSDK(builder: Datadog.Configuration.Builder) {
+    func configureSDK(builder: DatadogSDK.Configuration.Builder) {
         switch instrumentationMethod {
         case .directWithAdditionalFirstyPartyHosts:
             _ = builder.trackURLSession()
