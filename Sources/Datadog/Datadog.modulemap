@@ -1,5 +1,5 @@
-framework module Datadog {
-  umbrella header "Datadog.h"
+framework module DatadogSDK {
+  umbrella header "DatadogSDK.h"
 
   export *
   module * { export * }
